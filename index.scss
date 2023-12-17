@@ -1,0 +1,46 @@
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: .5rem;
+  padding: .5rem;
+  max-width: 500px;
+  margin: 0 auto;
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: .5rem;
+  gap: .25rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.form-group > label {
+  font-weight: bold;
+  font-size: .8em;
+  color: #ccc;
+}
+
+.form-group > input {
+  font-size: 1rem;
+  padding: .25rem;
+}
+
+.step-title {
+  margin: 0;
+  margin-bottom: 1rem;
+  text-align: center;
+}
