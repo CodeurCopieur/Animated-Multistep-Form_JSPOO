@@ -3,6 +3,8 @@ class multiForm {
   #lesForm
   #formStep
   currentStep
+  #inputs
+  allValid
 
   constructor(forms) {
     this.#lesForm = forms
@@ -22,17 +24,24 @@ class multiForm {
   }
 
   #buttonClick({target}) {
-    console.log(target);
+    let incrementor
 
     if (target.matches('[data-next]')) {
-      this.currentStep += 1
+      incrementor = 1
     } else if(target.matches('[data-previous]')) {
-      this.currentStep -= 1
-    } else {
-      return
-    }
+      incrementor = -1
+    } 
 
-    this.#showCurrentStep()
+    if (incrementor === null) return
+
+    this.#inputs = [...this.#formStep[this.currentStep].querySelectorAll('input')]
+    this.allValid = this.#inputs.every( input => input.reportValidity())
+
+    if (this.allValid) {
+      this.currentStep += incrementor
+      this.#showCurrentStep()
+    }
+    
   }
 
   #showCurrentStep() {
