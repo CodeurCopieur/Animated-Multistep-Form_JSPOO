@@ -11,6 +11,10 @@ class multiForm {
     this.#formStep = [...forms.querySelectorAll('[data-step]')]
 
     this.#lesForm.addEventListener('click', e => this.#buttonClick(e))
+
+    this.#formStep.forEach( step => {
+      step.addEventListener('animationend', e => this.#toggleClass(e))
+    })
   } 
 
   findElt() {
@@ -48,6 +52,11 @@ class multiForm {
     this.#formStep.forEach((step, i) => {
       step.classList.toggle('active', i === this.currentStep)
     })
+  }
+
+  #toggleClass({target}) {
+    this.#formStep[this.currentStep].classList.remove('hide')
+    target.classList.toggle('hide', !target.classList.contains('active'))
   }
 }
 
