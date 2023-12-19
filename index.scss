@@ -10,10 +10,10 @@
   padding: .5rem;
   max-width: 500px;
   margin: 0 auto;
-  display: none;
+  animation: fade 200ms ease-in-out forwards;
+
   &.active {
-    display: block;
-    animation: slide 500ms ease-in-out forwards;
+    animation: slide 200ms 125ms ease-in-out both;
   }
 }
 
