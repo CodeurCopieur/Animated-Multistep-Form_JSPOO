@@ -14,6 +14,7 @@
 }
 .card.active {
   display: block;
+  animation: slide 500ms ease-in-out forwards;
 }
 
 .form-group {
@@ -41,4 +42,38 @@
   margin: 0;
   margin-bottom: 1rem;
   text-align: center;
+}
+
+#multistepsform {
+  overflow: hidden;
+  position: relative;
+}
+
+.hide {
+  display: none;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(200%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.75);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
 }/*# sourceMappingURL=index.css.map */
